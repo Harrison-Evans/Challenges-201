@@ -2,9 +2,11 @@
 #filename: whogoesthere.sh
 # 
 notafunction(){
-echo "My Login Info Is"
-last
+
+last $USER
 }
 echo "Juge and Jury"
+
+
 
 notafunction
