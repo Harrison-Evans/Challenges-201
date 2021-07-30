@@ -8,7 +8,7 @@
 
 
 # variables 
-mkdir dir1 dir2 dir3 dir4
+#mkdir dir1 dir2 dir3 dir4
 creations=("/home/harrison/challenge/dir1" "/home/harrison/challenge/dir2" "/home/harrison/challenge/dir3" "/home/harrison/challenge/dir4")
        
 
