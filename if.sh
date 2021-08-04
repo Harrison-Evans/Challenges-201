@@ -8,13 +8,13 @@ allDirs=(derp merp)
 
 
 # Main 
-for dir in ${allDirs[@]}
+for dir in ${allDirs[@]} #start of for loop
 do
-if [ ! -d $dir ] 
+if [ ! -d $dir ] #checking the curent dir to see if they are not in the curent directory.
 then 
-mkdir  $dir
+mkdir  $dir # making a dir in the curent directory, if $dir isnt already present.
     echo $dir
 
-fi
-done
+fi # ending the if loop
+done 
 # End
