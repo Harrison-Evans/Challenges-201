@@ -12,7 +12,7 @@ for dir in ${allDirs[@]}
 do
 if [ ! -d $dir ] 
 then 
-mkdir $dir
+mkdir  $dir
     echo $dir
 
 fi
