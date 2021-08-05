@@ -1,0 +1,5 @@
+Get-EventLog -Logname System -After (Get-Date).AddDays(-1) | Out-File -FilePath .\last_24.txt.
+Get-EventLog -LogName System -EntryType Error | Out-File -FilePath .\error.txt
+Get-EventLog -logname System | Where-Object {$_.EventID -eq 16} 
+Get-EventLog -Newest 20 -LogName System
+Get-EventLog -Newest 500 -LogName System | Format-Table -Wrap
