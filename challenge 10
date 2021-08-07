@@ -1,0 +1,12 @@
+ get-process | sort-object -property WorkingSet -desc | select-object -first 5 
+get-process | sort id -desc
+get-process | sort cpu -desc
+Start-Process -FilePath "C:\Users\Admin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessories\Internet Explorer.lnk" "http://owasp.org/www-project-top-ten"
+for ($i=1; $i -lt 11; $i++) {Start-Process -FilePath "C:\Users\Admin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Accessories\Internet Explorer.lnk" "http://owasp.org/www-project-top-ten"
+sleep 1} 
+Stop-Process -name "iexplore"
+9008
+Stop-Process -Id 9008 
+
+
+bit long on some jsut wanted to test it out. LOVE PS
