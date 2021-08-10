@@ -1,0 +1,13 @@
+Set-NetFirewallRule -DisplayGroup "File And Printer Sharing" -Enabled True
+#enables file and printer sharing.
+nesh advfirewall firewall add rule name="allow incoming ping requests IPv4" dir=in action=allow protocall=icmpv4
+nesh advfirewall firewall add rule name="allow incoming ping requests IPv6" dir=in action=allow protocall=icmpv6
+#enables icmp 4/6 rules
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+#enable remote management
+iex ((New-Object System.Net.WebClient).DownloadString('https://git.io/debloat'))
+#disable bloatware
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
+#enables Hyper-V
+Set-SmbServerConfiguration -EnableSMB1Protocol $false -Force
+#Toggle SMBv1 off 
