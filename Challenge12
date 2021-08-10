@@ -1,0 +1,23 @@
+#Harrison Evans
+#8/10/21
+#challenge 12
+#201 ops
+#objective: make a folder that has all the ipconfig info, within that file creat a "select-object" with a function that yeilds just the ipv4 octec's
+
+
+#C:\Users\harri
+#creates a file in the disired path above.
+New-Item -Path 'C:\Users\harri' -Name "network_report.txt" -ItemType "file"
+#pulls up only ipv4
+#ipconfig | findstr /i "ipv4"
+#puts all the ipconfig info into the file "network_report.txt
+ipconfig /all > C:\Users\harri\network_report.txt
+#yeilds the ipv4 address from the file with the ipconfig info in it. had to much info, but close!
+#Select-String -Path C:\Users\harri\network_report.txt -Pattern "ipv4"
+function challenge12 {
+$ipconfig = Select-String -Path C:\Users\harri\network_report.txt -Pattern "ipv4" | Select-Object -First 1
+if ($ipconfig -match "\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b") {
+    $Matches[0]
+    }}
+     #this yeilds just the ipv4 octec.
+challenge12 #putting the fun in function
