@@ -1,0 +1,51 @@
+#!/bin/bash
+# Script:                       Challenge 13
+# Author:                       Harrison Evans
+# Date of latest revision:      8/11/21
+# Purpose:                      bash script whois/dig/host/nslookup/FUNction
+
+
+# Variables
+#$USER
+# Functions
+bang () {
+echo "***___Domain Name System info DNS___***"
+
+dig $food >> webinfo.txt
+
+sleep 4
+
+echo "***___Input-Output for Desired Domain___***"
+
+host $food >> webinfo.txt
+
+sleep 4
+
+echo "***___Additional Information Of Domain___***"
+
+nslookup $food >> webinfo.txt
+}
+
+
+
+# Main 
+sleep 1
+echo "Welcome, $USER"
+sleep 2
+echo "Lets Find Out More About A Domain,"
+sleep 2
+echo "Enter Domain Name Here! *Example* 'Domain.com'"
+read food
+sleep 2
+
+echo "Disred Information Will Be In A File Named 'webinfo.txt'"
+sleep 4
+
+
+whois $food > webinfo.txt
+
+bang
+
+    nano webinfo.txt
+
+# End
