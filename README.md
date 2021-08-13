@@ -13,5 +13,5 @@ Thankful for GitHub for when I need to recall an automation, security practice o
 
 My mission with GitHub to to continue on all the scripts that I have done. Pull the scripts and practice on free time. 
 
-My 
+Shell scripting is one I particularly would love to become fluid with, the interaction it provides, creative yet simplistic.
 
