@@ -15,7 +15,7 @@ echo -n 'Path: '
 read dirpath
 echo "what set permissions would you like to have for that folder's files?"
 read permissions
-#chmod $permissions "$dirpath"
+chmod $permissions "$dirpath"
 #echo "$dirpath Permissions has been changed"
 ls -l "$dirpath"
 #echo "Would you like to change the permissions on another folder?(yes or no)"
