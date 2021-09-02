@@ -1,0 +1,28 @@
+#!/bin/bash
+# Script:                       Challenge 2 class 3 301
+# Author:                       Harrison Evans
+# Date of latest revision:      9/1/21
+# Purpose:                      Changin permissions of everything in a Dir
+#until [ "$input" = 'no']
+# Variables
+
+
+ 
+read -p "Hello, who am I speaking to? " name
+echo "It's nice to meet you $name, which folder would you like? Please enter the path!"
+#do
+echo -n 'Path: '
+read dirpath
+echo "what set permissions would you like to have for that folder's files?"
+read permissions
+#chmod $permissions "$dirpath"
+#echo "$dirpath Permissions has been changed"
+ls -l "$dirpath"
+#echo "Would you like to change the permissions on another folder?(yes or no)"
+#read input
+#done
+
+
+
+# i was messing around alot trying to add some fun things but i need to work more on this for sure.
+#end
