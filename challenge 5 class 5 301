@@ -33,3 +33,16 @@ cat $WTMP #""""""""""""
 #cat wtmp
 #echo "Logs cleaned up"
 #exit 0
+
+
+# auth.log: keeps authentication logs (success/failure) (RH, CentrOS goes to /var/log/secure)
+
+# kern.log: logs from kernel as well as warning info
+
+# wtmp: login/logout records
+
+# pureftp.log: monitors for FTP connections using pureftp process
+
+# daemon.log: keeps track of background services
+
+# faillog: records failed login attempts
