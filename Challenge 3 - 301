@@ -1,0 +1,39 @@
+#!/bin/bash
+# Script:                       Challenge 4 class 3 301
+# Author:                       Harrison Evans
+# Date of latest revision:      9/2/21
+# Purpose:                      conditionals in menu stsyem
+
+
+# aid form https://askubuntu.com/questions/1705/how-can-i-create-a-select-menu-in-a-shell-script
+
+turtle() {
+PS3='Please enter your choice: '
+options=("Option 1 Hello World" "Option 2 Ping Self" "Option 3 IP INFO" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Option 1 Hello World")
+            echo "you chose choice 1"
+            echo "Hello world"
+            turtle
+            ;;
+        "Option 2 Ping Self")
+            echo "you chose choice 2"
+            ping -c1 $(hostname)
+            turtle
+            ;;
+        "Option 3 IP INFO")
+            echo "you chose choice 3"
+            sudo lshw -class network
+            turtle
+            ;;
+        "Quit")
+            exit 0
+            ;;
+        *) echo "invalid option $REPLY";;
+    esac
+done
+}
+turtle
+#end
