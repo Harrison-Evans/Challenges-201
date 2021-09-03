@@ -1,0 +1,35 @@
+#!/bin/bash
+# Script:                       Challenge 5 class 5 301
+# Author:                       Harrison Evans
+# Date of latest revision:      9/3/21
+# Purpose:                      Clear sysog and wtmp with a script
+
+#SYS Variable Defines the path of SYSLOG, WTMP variable defines the path for wtmp
+#main
+
+
+SYS=/var/log/syslog
+WTMP=/var/log/wtmp
+
+cat $SYS #cat is for viewing 
+cat $WTMP #""""""
+sudo truncate -s 0 $SYS #comamand that is used to delete all the rows of data in syslog
+sudo truncate -s 0 $WTMP #comamand that is used to delete all the rows of data in WTMP
+cat $SYS #cat is for viewing
+cat $WTMP #""""""""""""
+#end
+
+# did the forst and it didnt work, then made a second one that still didnt work, just to find out i save it under a misspelled name lol
+
+#
+##LOG_DIR=/var/log/
+#WTMP=/var/log/
+#cd /var/log
+#cat syslog
+#cat wtmp
+#sudo cat /dev/null > wtmp
+#sudo service rsyslogd restart
+#cat syslog
+#cat wtmp
+#echo "Logs cleaned up"
+#exit 0
