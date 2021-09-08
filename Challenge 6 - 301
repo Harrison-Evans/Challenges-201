@@ -1,0 +1,22 @@
+import os
+os.system("sudo bash lshw.sh")
+import socket
+h_name = socket.gethostname()
+IP_addres = socket.gethostbyname(h_name)
+print("Host Name is:" + h_name)
+print("Computer IP Address is:" + IP_addres)
+print("Challenge 6 Completed!")
+
+
+
+
+
+
+not sure how to #out lines in py
+
+Harrison Evans
+9/7/21
+Challenge 6
+goal is to python libarary "os" must be utilized
+3 vriables must be declared in pythong that contain bash operations /lshw /ip /whoami
+3 prints must be used.
