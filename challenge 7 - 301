@@ -1,0 +1,33 @@
+#!/usr/bin/env python3
+# Harrison Evans
+# 9/8/21
+# Challenge 7
+
+# Import libraries
+
+import os
+
+# Declaration of variables
+txt1 = input("please enter the desired directory path: ")
+
+### Read user input here into a variable
+
+# Declaration of functions
+
+### Declare a function here
+
+for (root, dirs, files) in os.walk(top=txt1, topdown=True):
+    ### Add a print command here to print ==root==
+    print(root, "parent")
+    ### Add a print command here to print ==dirs==
+    print(dirs, "subdirectories")
+    ### Add a print command here to print ==files==
+    print(files, "Files")
+# Main
+
+### Pass the variable into the function here
+os.walk(txt1)
+# End
+
+
+# im falling asllep here, im sure i may have missed somthing, thanks for the sharp eye on my last one, ill be sure to fix that.
