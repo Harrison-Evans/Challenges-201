@@ -23,7 +23,7 @@ for (root, dirs, files) in os.walk(top=txt1, topdown=True):
     dirs[:] = [x for x in dirs if not x.startswith('.')]
     print(dirs, "subdirectories")
     ### Add a print command here to print ==files==
-    file[:] = [x for x in file if not x.startswith('.')]
+    files[:] = [x for x in files if not x.startswith('.')]
     print(files, "Files")
 # Main
 
