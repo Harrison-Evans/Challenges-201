@@ -1,3 +1,16 @@
+#!/usr/bin/env python3
+#harrison Evnas
+#challenge 6
+#9/8/21
+#
+
+# full disclosure under the influince a bit, and added (in my eyes) a funnny variable. Python is Aswsome! 0_0
+
+
+
+
+x = "Aswsome!"
+print("Python is " + x)
 import os
 os.system("sudo bash lshw.sh")
 import socket
@@ -12,11 +25,10 @@ print("Challenge 6 Completed!")
 
 
 
-not sure how to #out lines in py
 
-Harrison Evans
-9/7/21
-Challenge 6
-goal is to python libarary "os" must be utilized
-3 vriables must be declared in pythong that contain bash operations /lshw /ip /whoami
-3 prints must be used.
+#Harrison Evans
+#9/7/21
+#Challenge 6
+#goal is to python libarary "os" must be utilized
+#3 vriables must be declared in pythong that contain bash operations /lshw /ip /whoami
+#3 prints must be used.
