@@ -1,0 +1,25 @@
+# Script Name:      addnewuser.py
+# Author:       Harrison Evans
+# Last Rev:         9/9/21
+# Purpose:          Creates new user in AD
+
+# Main
+
+New-ADUser `
+-Name "Dwight Schrute" `
+-GivenName "Dwight" `
+-Surname "Schrute" `
+-SamAccountName "d.schrute" `
+-AccountPassword (Read-Host -AsSecureString "Input User Password") `
+-ChangePasswordAtLogon $True `
+-Company "Dunder Mifflin" `
+-Title "Assistant to the Regional Manager" `
+-State "Pennsylvania" `
+-City "Scranton" `
+-Department "Sales" `
+-EmailAddress "D.Schrute@beetfarm.com" `
+-Enabled $True
+
+# End
+
+# had help form Josh, :)
