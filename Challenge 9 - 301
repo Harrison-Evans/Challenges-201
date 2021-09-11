@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+#Harrison Evnas
+#challenge 9
+#9/10/21
+# messing around with py lists!
+stone_fruit = ['cherry', 'coconut', 'peach', 'nectarine', 'apricot',\
+               'mango', 'lychee', 'raspberry', 'blackberry', 'plum']
+print("Want to guess one of my favorite stone fruit?")
+import time ; time.sleep(3) #added a sleep
+print(*stone_fruit[3:4]) #[] pulls the element in stide the bracket,
+print("These are strong contenders,")
+import time ; time.sleep(2) 
+print(*stone_fruit[6:10]) #wish it didnt show the '' around each one,
+# I called for, ":" can call upon the listed iteims you wish to locate.
+# kinda stetting a start and end of the surch if you wll
+
+#this is a cool one, it 'MUTATES' my variable (x) and replaces
+stone_fruit[:] = ['onion' if x=='lychee' else x for x in stone_fruit]
+import time ; time.sleep(2) 
+print("I guess Shrek hates Lychees and wants Onions, lets update this shopping list,") 
+import time ; time.sleep(4)
+print(*stone_fruit) # reprint the updated list
+import time ; time.sleep(2)
+print("Poor Donkey, seemed to be really craving lychees!")
