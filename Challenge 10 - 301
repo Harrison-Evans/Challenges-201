@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+#Harrison Evnas
+#challenge 10
+#9/13/21
+# if-else statements
+#main
+a = "365"
+b = "24.7"
+if b == a:
+    print("The amount of time I am hard on myself")
+elif b > a:
+    print("Communicate To Loved ones!")
+elif a > b:
+    print("Take the steps to communicate to a Mental Professional, or Free Hotline.")
+elif a != b:
+    print("Stick with the healthy habits of good ole selflove")
+elif a < b:
+    print("Just know people go though ups and downs, its natural and still communicate, just dont over think it.")
+elif a <= b:
+    print("Have the courage to reach out")
+elif a >= b:
+    print("Lets chat, we can realte and share how to work on it.")
+else:
+    print("Know that some go through things, maybe take some time to shine your light on others, it may go really far :)")
+#end
