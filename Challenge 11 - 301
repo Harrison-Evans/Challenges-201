@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+#Harrison Evnas
+#challenge 11
+#9/14/21
+# using file handling commands,
+#main
+#sets variable and makes path to disired location, with w+ that makes it write it.
+taco = open("/home/harrison/Desktop/Challenge11/Challenge11test.txt", "w+")
+taco.write("It is Taco Tuesday! \n") # \n makes a new line
+taco.write("So go get a taco, \n")
+taco.write("But dont forget Horchata!") # not adding a \n for it will make a blank line
+print("Here is what was added to the new file:")
+taco = open("/home/harrison/Desktop/Challenge11/Challenge11test.txt", "r") # to my understanding the r is to prime the read, 
+print() # adds a gap
+print(taco.read()) #reads out the desired folder with the variable
+from os import remove
+import time ; time.sleep(2) # sleeps
+print("I will say it again for thoses in the back!")
+taco= open("/home/harrison/Desktop/Challenge11/Challenge11test.txt") # sets the adjusted variable without the "w"
+import time ; time.sleep(2)
+lines = taco.readlines()
+print(lines[0]) # starts at 0 then up, 
+remove("/home/harrison/Desktop/Challenge11/Challenge11test.txt") # removes the file,
