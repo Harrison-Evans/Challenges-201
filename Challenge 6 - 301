@@ -4,31 +4,24 @@
 #9/8/21
 #
 
-# full disclosure under the influince a bit, and added (in my eyes) a funnny variable. Python is Aswsome! 0_0
 
 
+#main
 
 
 x = "Aswsome!"
 print("Python is " + x)
 import os
 os.system("sudo bash lshw.sh")
+print("Next we will put your info about a domain into a file for refernce.")
+import time ; time.sleep(4)
+os.system("sudo bash infotofile.sh")
+import time ; time.sleep(4)
+print("Now to show the info in nano, go exit and continue, control+X")
 import socket
 h_name = socket.gethostname()
 IP_addres = socket.gethostbyname(h_name)
 print("Host Name is:" + h_name)
 print("Computer IP Address is:" + IP_addres)
 print("Challenge 6 Completed!")
-
-
-
-
-
-
-
-#Harrison Evans
-#9/7/21
-#Challenge 6
-#goal is to python libarary "os" must be utilized
-#3 vriables must be declared in pythong that contain bash operations /lshw /ip /whoami
-#3 prints must be used.
+#end
