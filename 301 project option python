@@ -1,0 +1,130 @@
+#Blue team code
+#9/21/21
+#group project 301
+#What we need/care for in the scrip
+
+#part one:
+#https://www.youtube.com/watch?v=ersTjr47_nw
+#pyad library python
+#pyad active directory
+#pyad installation
+#how to automate active directory using python
+#how to search active directory using python
+#how to login to active directory using python
+
+#Part two:
+#https://www.youtube.com/watch?v=bKdHPfQ9blE&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=2
+#how to create active directory user account using python.
+#bulk active directory account creation using python
+
+#Part Three:
+#https://www.youtube.com/watch?v=gi-MqwS_2eg&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=3
+#how to delete active directory user using python
+#how to delete bulk user account from csv
+
+#Part Four: 
+#https://www.youtube.com/watch?v=3SaCLxW3hyU&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=4
+#how to create active directory group using python
+#how to automate active directory group creation 
+#automate ad group creation
+
+ #Part Five:
+#https://www.youtube.com/watch?v=LpdIASSWUPo&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=5
+#how to update active directory group membership using python
+#how to update active directory group membership from csv
+
+ #Part Six: 
+#https://www.youtube.com/watch?v=M3IlWH2h9vA&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=6
+#how to read group membership from active directory
+#how to generate csv file with group membership
+#active directory group membership report
+
+#Part Seven:
+#https://www.youtube.com/watch?v=6sLjk_vXhMA&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=7
+#how to move active directory user objects using python
+#how to move active directory group objects using python
+#active directory object movement using python
+#automate active directory object movement
+#automate active directory user movement using python
+#ad user movement using python
+#active directory move user to new ou
+
+#Part Eight:
+#https://www.youtube.com/watch?v=Hk-COl-garA&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=8
+#how to update ad user object attributes using python
+#how to update ad group object attributes using python
+#active directory object attribute manipulation using python
+
+
+
+#Part Nine:
+#https://www.youtube.com/watch?v=RqYe185QRKU&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=9
+#active directory bulk update using python
+#active directory bulk update from csv using python
+#active directory bulk update 
+#active directory user update using python
+
+#Part Ten:
+#https://www.youtube.com/watch?v=HjdujPyLCg0&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=10
+###pyad library python
+###pyad active directory
+###pyad installation
+###how to automate active directory using python
+###how to search active directory using python
+
+#how to login to active directory using python
+#change ad user password using python
+#python option for automation DC/AD set up.
+
+#Part Eleven:
+#https://www.youtube.com/watch?v=PzpROqlgUrw&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=11
+###pyad library python
+###pyad active directory
+###pyad installation
+###how to automate active directory using python
+###how to search active directory using python
+###how to login to active directory using python
+###change ad user password using python
+
+#how to get ad user account expiration date using python
+#pyad ad user account expiration date
+
+#Part Twelve:
+#https://www.youtube.com/watch?v=UL47DSlJK9M&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=12
+# compliments part Eleven
+
+#Part Thirteen:
+#https://www.youtube.com/watch?v=fhQE342ZTrk&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=13
+###pyad library python
+###pyad active directory
+###pyad installation
+###how to automate active directory using python
+###how to search active directory using python
+###how to login to active directory using python
+###change ad user password using python
+###how to get ad user account expiration date using python
+###pyad ad user account expiration date
+
+#how to connect active directory from your local machine 
+#how to connect active directory from your mac
+
+#Part Fourteen: Final steps
+#
+# https://www.youtube.com/watch?v=6LiXbtWyWEk&list=PLI8raxzYtfGxPXHe9gvILZDgEiBuu_cyZ&index=14
+###pyad library python
+###pyad active directory
+###pyad installation
+###how to automate active directory using python
+###how to search active directory using python
+###how to login to active directory using python
+###change ad user password using python
+###how to get ad user account expiration date using python
+###pyad ad user account expiration date
+###how to connect active directory from your local machine 
+###how to connect active directory from your mac
+
+#how to create active directory self service bot using  python
+#how to create active directory self service bot for password reset using  python
+#how to create active directory self service bot using  twilio whatsapp & python
+#how to create active directory self service for password  reset using twilio whatsapp & python
+
