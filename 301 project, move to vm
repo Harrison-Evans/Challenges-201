@@ -1,0 +1,20 @@
+#basic operation/automation (read write)
+
+#advance automation & operations 
+
+#all types of possible reporting (monitoring and audit)
+
+#download python
+#cd into that folder, typiclaly,
+#c:\Users\Administrator\AppData\Local\Programs\Python\Python(latest version)
+
+#adding one user, and how to check info you may care for of that user.
+
+from pyad import * #import all form python ad
+pyad.set_defaults(ldap_server="example.example.com",username="example",password="example") #path to where we are adding
+user=pyad.aduser.ADUser.from_cn("exmple") #adsi edit. then find the user to add
+
+print(user.get_attribute("userPrincipalName")) #shows users full name in the network/workgroup
+#can also be "whencreated" "useraccountcontrol" alot of great options
+
+#part two. bulk user add.
