@@ -1,0 +1,23 @@
+#harrison evans
+#10/5/21
+#Challenge 2
+
+
+
+
+
+import os
+import time
+from time import gmtime, strftime
+hostname = "8.8.8.8" #example
+response = os.system("ping -c 1 " + hostname)
+i=1
+while i <= 10: 
+    time.sleep(2)
+    d = strftime("%x %X", gmtime())
+#and then check the response...
+    if response == 0:
+        print(hostname, 'is up!', d)
+    else:
+        print(hostname,'is down!', d)
+          
