@@ -1,0 +1,138 @@
+# #my plans for challenge 7
+
+
+
+#                                     ####   Examples of addition, see last link for really neat ideas    ####
+
+
+
+#    # https://stackoverflow.com/questions/37394705/getting-files-of-every-directory-py
+
+# import os
+ 
+# # The top argument for walk
+# topdir = '.'
+# # The extension to search for
+# exten = '.txt'
+# logname = 'findfiletype.log'
+# # What will be logged
+# results = str()
+ 
+# for dirpath, dirnames, files in os.walk(topdir):
+#     for name in files:
+#         if name.lower().endswith(exten):
+#             # Save to results string instead of printing
+#             results += '%s\n' % os.path.join(dirpath, name)
+ 
+# # Write results to logfile
+# with open(logname, 'w') as logfile:
+#     logfile.write(results)
+
+
+
+#     #or adding somthing like:
+
+
+#     import os
+# for (root, dirs, files) in os.walk(rootDir):
+#     # In each iteration, files will contain the list of files in the directory,
+#     # where directories are traversed recursively.
+#     map(lambda f: crypt(f, key, root), files)
+ 
+#     # the map function applys crypt to each itiem."well a wrapper around crypt"
+
+#    #https://www.youtube.com/watch?v=YL7GT-9_ksI \\\
+
+
+#    #Found a cool think i and pick and pull from 
+
+#    #https://medium.com/@abhishake21/encrypt-and-decrypt-files-and-folder-with-a-password-and-salt-of-your-choice-using-python-7101840b2753
+
+#    # Importing cryptography library modules
+# from cryptography.fernet import Fernet
+# from cryptography.hazmat.backends import default_backend
+# from cryptography.hazmat.primitives import hashes
+# from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
+# import base64
+
+# # Importing tkinter for GUI app
+# import tkinter as tk
+# import tkinter.filedialog as fd
+# from tkinter import messagebox
+# from tkinter.ttk import *
+
+# # Importing required libraries
+# import os
+# import threading
+# import webbrowser
+# import stdiomask
+# from tqdm import tqdm
+#    #https://medium.com/@abhishake21/encrypt-and-decrypt-files-and-folder-with-a-password-and-salt-of-your-choice-using-python-7101840b2753
+
+
+# def encfile():
+#     password = bytes(stdiomask.getpass(prompt='\nEnter password - ', mask='*'), 'utf-8')
+#     salt = bytes(stdiomask.getpass(prompt='Enter Salt(leave blank if not required) - ', mask='*'), 'utf-8')
+#     fileln = input('Enter file locations(separated by comma) - ').split(',')
+
+#     kdf = PBKDF2HMAC(
+#         algorithm=hashes.SHA256(),
+#         length=32,
+#         salt=salt,
+#         iterations=100000,
+#         backend=default_backend())
+
+#     key = base64.urlsafe_b64encode(kdf.derive(password))
+    
+# # if you want you can save the key in a file incase you forget your password and/or salt otherwise comment it out.
+
+# #    with open('my.key','wb') as mykey:
+# #        mykey.write(key)
+    
+#     f = Fernet(key)
+
+#     for file in fileln:
+#         with open(file,'rb') as original_file:
+#             original = original_file.read()
+
+#         encrypted = f.encrypt(original)
+
+#         with open (file,'wb') as encrypted_file:
+#             encrypted_file.write(encrypted)
+
+#         print('\nAll files are Encrypted.')
+
+
+
+#    #https://medium.com/@abhishake21/encrypt-and-decrypt-files-and-folder-with-a-password-and-salt-of-your-choice-using-python-7101840b2753
+
+
+
+
+        
+#         def decfile():
+#     password = bytes(stdiomask.getpass(prompt='\nEnter password - ', mask='*'), 'utf-8')
+#     salt = bytes(stdiomask.getpass(prompt='Enter Salt(leave blank if not required) - ', mask='*'), 'utf-8')
+#     fileln = input('Enter file locations(separated by comma) - ').split(',')
+
+#     kdf = PBKDF2HMAC(
+#         algorithm=hashes.SHA256(),
+#         length=32,
+#         salt=salt,
+#         iterations=100000,
+#         backend=default_backend())
+
+#     key = base64.urlsafe_b64encode(kdf.derive(password)) 
+#     f = Fernet(key)
+
+#     for file in fileln:
+#         with open(file,'rb') as original_file:
+#             original = original_file.read()
+
+#         decrypted = f.decrypt(original)
+
+#         with open (file,'wb') as decrypted_file:
+#             decrypted_file.write(decrypted)
+
+#         print('\nAll files are Decrypted.')
+#    #https://medium.com/@abhishake21/encrypt-and-decrypt-files-and-folder-with-a-password-and-salt-of-your-choice-using-python-7101840b2753
