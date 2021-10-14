@@ -1,0 +1,191 @@
+#by Harrison Evans
+#date 10/12/21
+#challenge 6
+## Text menu in Python
+
+
+
+
+
+#aid form,
+#https://extr3metech.wordpress.com/2014/09/14/simple-text-menu-in-python/
+# Bill and Josh,
+#https://www.thepythoncode.com/article/encrypt-decrypt-files-symmetric-python
+
+
+
+
+#lib
+import os
+import pyautogui
+import ctypes
+import time
+from cryptography.fernet import Fernet
+
+
+
+
+#fun
+def write_key():
+    """
+    Generates a key and save it into a file
+    """
+    key = Fernet.generate_key()
+    with open("key.key", "wb") as key_file:
+        key_file.write(key)
+def load_key():
+    """
+    Loads the key from the current directory named `key.key`
+    """
+    return open("key.key", "rb").read()
+
+
+#def popup_window():
+
+
+#def wallpaper_replacment():
+
+
+
+
+
+
+
+
+# def Encrypt_a_File():
+#     user_input = input("Please Enter the Path of your File: ")
+    
+# def Decrypt_a_File():
+#     user_input = input("Please Enter the Path of your File: ")
+    
+# def Encrypt_a_Message():
+#     user_input = input("Please Provide a Cleartext String: ")
+    
+# def Decrypt_a_Message():
+#     user_input = input("Please Provide a Cleartext String: ")
+
+    
+
+
+def main():
+
+    def print_menu():       ## Your menu design here
+        print (30 * "-" , "MENU" , 30 * "-")
+        print ("1. Encrypt a File")
+        print ("2. Decrypt a File")
+        print ("3. Encrypt a Message")
+        print ("4. Decrypt a Message")
+        print ("5. Encrypt a File and Contents")
+        print ("6. Decrypt a File and Contents")
+        print ("7. Exit")
+        print (67 * "-")
+    
+    loop=True      
+
+    while loop:          ## While loop which will keep going until loop = False
+        print_menu()    ## Displays menu
+        choice = input("Enter your choice [1-5]: ")
+        
+        if choice=="1":     
+            print ("Encrypt a File has been selected")
+            key=load_key()
+            f=Fernet(key)
+            time.sleep(1)
+            path=input ("Please Enter the Path of your File: ")
+            time.sleep(1)
+            with open(path, "rb") as file:
+                file_data=file.read()
+                encrypted_data=f.encrypt(file_data)
+            with open(path, "wb") as file:
+                file.write(encrypted_data)
+                time.sleep(1)
+            print("Encryption Successful")
+            main()
+            
+        elif choice=="2":
+            print ("Decrypt a File has been selected")
+            key=load_key()
+            f=Fernet(key)
+            path=input("Please Enter the Path of your File: ")
+            with open(path, "rb") as file:
+                encrypted_data=file.read()
+                decrypted_data=f.decrypt(encrypted_data)
+            with open(path, "wb") as file:
+                file.write(decrypted_data)
+            print("Decryption Successful")
+            main()
+            
+        elif choice=="3":
+            print ("Encrypt a Message has been selected")
+            key=load_key()
+            f=Fernet(key)
+            string=input("Please Provide a Cleartext String: ")
+            estring=string.encode()
+            encrypted=f.encrypt(estring)
+            print("Encrypted String:")
+            print(encrypted)
+            time.sleep(3)
+            main()
+            
+        elif choice=="4":
+            print ("Decrypt a Message has been selected")
+            
+            key=load_key()
+            f=Fernet(key)
+            string=input("Please Provide a String to Decrypt: ")
+            estring=str.encode(string)
+            decrypted=f.decrypt(estring)
+            print("Decrypted String:")
+            print(decrypted)
+            time.sleep(2)
+            main()
+         
+        elif choice=="5":
+            def recursive_encrypter(filename):
+                key=load_key()
+                f=Fernet(key)
+                with open(filename, "rb") as file:
+                    file_data = file.read()
+                    encrypted_data = f.encrypt(file_data)
+                with open(filename, "wb") as file:
+                    file.write(encrypted_data)
+
+            enpath=input("Enter Filepath for Recursive Encryption:")
+            for (root, dirs, filenames) in os.walk(enpath):
+                for file in filenames:
+                    filename = os.path.join(root,file)
+                    recursive_encrypter(filename)
+            print("Encryption Successful")
+
+
+        elif choice=="6": 
+            def recursive_decrypter(filename):
+                key=load_key()
+                f=Fernet(key)
+                with open(filename, "rb") as file:
+                    encrypted_data = file.read()
+                    decrypted_data = f.decrypt(encrypted_data)
+                with open(filename, "wb") as file:
+                    file.write(decrypted_data)
+            depath=input("Enter Filepath for Recursive Decryption:")
+            for (root, dirs, filenames) in os.walk(depath):
+                for file in filenames:
+                    filename = os.path.join(root,file)
+                    recursive_decrypter(filename)
+
+
+        elif choice=="7":
+            print ("Exit has been selected")
+            
+            loop=False # This will make the while loop to end as not value of loop is set to False
+        else:
+            # Any integer inputs other than values 1-5 we print an error message
+            print("Wrong option selection. Enter any key to try again..")
+
+
+
+write_key()
+main()
+
+
+
