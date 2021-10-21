@@ -1,0 +1,88 @@
+#Harrison Evans
+#10/20/21
+#port scanner and pingsweep + menu
+#challenge 13 of 11-13
+
+#https://thepacketgeek.com/scapy/building-network-tools/part-10/
+#https://github.com/ewhd/ops401d2/blob/master/challenge411-scapy-security-tool1.py
+#https://thepacketgeek.com/scapy/building-network-tools/part-10/
+#https://stackoverflow.com/questions/25980777/new-to-scapy-trying-to-understand-the-sr
+# JOSH!!!!
+# Libraries
+from scapy.layers.inet import IP, ICMP, TCP, sr, sr1
+import random
+from ipaddress import IPv4Network
+
+# Functions
+
+#def menu():
+    #print("1. Port Scanner")
+    #print("2. Ping Sweep")
+    #print("3. Exit")
+
+def scanner():
+    # Send SYN with random Source Port for each Destination Port
+    ip=input("Enter IP Address To Scan:") 
+    ports=[22, 80, 389, 443, 3389]
+    for port in ports:
+        src_port=random.randint(1025,65534)
+        resp=sr1(
+            IP(dst=ip)/TCP(sport=src_port,dport=port,flags="S"),
+            timeout=1,
+            verbose=0)
+            
+        if resp is None:
+            print(f"{ip}:{port} is filtered (silently dropped).")
+        
+        elif(resp.haslayer(TCP)):
+            if(resp.getlayer(TCP).flags == 0x12):
+                # Send a gratuitous RST to close the connection
+                send_rst=sr(
+                    IP(dst=ip)/TCP(sport=src_port,dport=port,flags='R'),
+                    timeout=1,
+                    verbose=0
+                )
+                send_rst
+                print(f"{ip}:{port} is open.")
+            
+            elif (resp.getlayer(TCP).flags == 0x14):
+                print(f"{ip}:{port} is closed.")
+
+        elif(resp.haslayer(ICMP)):
+            if(
+                int(resp.getlayer(ICMP).type) == 3 and
+                int(resp.getlayer(ICMP).code) in [1,2,3,9,10,13]
+            ):
+                print(f"{ip}:{port} is filtered (silently dropped).")
+                
+
+
+network=input("Enter CIDR Address To Scan( Example 1.1.1.0/24 ):")
+addresses=IPv4Network(network)
+live_count=0
+    # Send ICMP requests and return results
+for host in addresses:
+    if (host in (addresses.network_address, addresses.broadcast_address)):
+            # Skip network and broadcast addresses
+        continue
+
+        # Assigning the ping response to variable "resp"
+    resp=sr1(
+            IP(dst=str(host))/ICMP(),
+            timeout=1,
+            verbose=0,
+        )
+
+    if resp is None:
+            print(f"{host} IS NOT RESPONDING.")
+    elif(
+        int(resp.getlayer(ICMP).type)==3 and
+        int(resp.getlayer(ICMP).code) in [1,2,3,9,10,13]
+        ):
+        print(f"{host} IS BLOCKING ICMP.")
+    else:
+        print(f"{host} IS RESPONDING.")
+        live_count += 1
+        scanner()
+    # Print total number of hosts that are online    
+print(f"{live_count}/{addresses.num_addresses} HOSTS ARE ONLINE.")
