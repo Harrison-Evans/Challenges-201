@@ -1,0 +1,48 @@
+#!/usr/bin/env python
+
+#Harrison Evans
+#November 22, 2021
+#Challenge 36
+#https://www.hackingarticles.in/multiple-ways-to-banner-grabbing/
+#https://null-byte.wonderhowto.com/forum/python-port-scanner-and-banner-grabber-0188739/
+#Few others that I lost in the mess but got some good data id say. Google foo is getting strong with this grass hopper.
+
+
+
+#lib
+import os, time
+import subprocess
+
+
+
+
+#nmap banner grabbing
+ip_address = input("Enter ip")
+port_num = input("Enter port number")
+
+#Main
+#Nmap as a simple banner grabber which connects to an open TCP port,
+#and prints out anything sent by the listening service within a couple of seconds
+process = subprocess.Popen(["nmap", "-sV", ip_address])
+try:
+    process.wait(timeout=2)
+except:
+    process.kill()
+
+#Telnet banner grabbing
+#We will be using the Telnet protocol in order to interact with services to grab their banners.
+process2 = subprocess.Popen(["telnet", ip_address, port_num])
+try:
+    process2.wait(timeout=2)
+except:
+    process2.kill()
+
+#Netcat banner grabbing
+#Netcat is a network utility that will again help us to grab the FTP banner of the remote host server.
+process3 = subprocess.Popen(["nc", ip_address, port_num])
+try:
+    process3.wait(timeout=2)
+except:
+    process3.kill()
+
+#End
