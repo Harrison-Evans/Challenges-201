@@ -1,0 +1,29 @@
+#!/usr/bin/env python3
+#harrison e
+#december 6, 2021
+# challenge 44
+# port scaner
+
+
+
+
+#Import Library
+import socket
+
+
+#Main
+
+sockmod = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+timeout = 2000 #timeout value.
+sockmod.settimeout(timeout)
+
+hostip = input("Enter IP address: ")
+portno = int(input("Enter your port number: "))
+
+def portScanner(portno):
+    if sockmod.bind((hostip, portno)): #a bind socket function call
+        print("Port closed")
+    else:
+        print("Port open")
+
+portScanner(port)
